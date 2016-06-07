@@ -5,7 +5,8 @@ if(array_key_exists('dbug', $_GET)) {
 }
 
 if(array_key_exists('X-Forwarded-For', $_SERVER)) {
-	echo $_SERVER['X-Forwarded-For'] . "\n";
+	$parts = explode(',', $_SERVER['X-Forwarded-For']);
+	echo $parts[0] . "\n";
 }
 else {
 	echo $_SERVER['REMOTE_ADDR'] . "\n";	
